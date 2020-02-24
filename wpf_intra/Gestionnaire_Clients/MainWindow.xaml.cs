@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -71,12 +72,29 @@ namespace Gestionnaire_Clients
 
         private void boutonadd_Click(object sender, RoutedEventArgs e)
         {
-
+            var emp = new Customer() { Name = prenom.Text.ToString(), LastName = nom.Text.ToString(), Address = adresse.Text.ToString(), City = ville.Text.ToString(), Province = province.Text.ToString(), PostalCode = code.Text.ToString(), PicturePath = "images/user.png", ContactInfo = contact.Text.ToString() };
+            Customers.Add(emp);
+            SelectedCustomers = emp;
+            Debug.WriteLine(Customers.Count);
         }
 
         private void boutonsup_Click(object sender, RoutedEventArgs e)
         {
-
+            int pos = Customers.IndexOf(SelectedCustomers);
+            Customer temp;
+            if (SelectedCustomers != null)
+            {
+                if (pos == 0)
+                {
+                    temp = Customers.ElementAt(pos + 1);
+                }
+                else
+                {
+                    temp = Customers.ElementAt(pos - 1);
+                }
+                Customers.Remove(SelectedCustomers);
+                SelectedCustomers = temp;
+            }
         }
     }
 }
