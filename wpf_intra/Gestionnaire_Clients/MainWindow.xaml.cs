@@ -24,5 +24,15 @@ namespace Gestionnaire_Clients
         {
             InitializeComponent();
         }
+
+        private void boutonadd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void boutonsup_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
