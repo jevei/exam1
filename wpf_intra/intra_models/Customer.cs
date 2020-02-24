@@ -9,7 +9,7 @@ namespace intra_models
         public event PropertyChangedEventHandler PropertyChanged;
         public string Name { get; set; }
         public string LastName { get; set; }
-        public string Adress { get; set; }
+        public string Address { get; set; }
         public string City { get; set; }
         public string Province { get; set; }
         public string PostalCode { get; set; }

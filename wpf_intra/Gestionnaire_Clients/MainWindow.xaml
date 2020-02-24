@@ -40,10 +40,14 @@
                 <Label Grid.Column="0" Content="Liste des clients"/>
                 <Button Grid.Column="1" x:Name="boutonadd" Content="Nouveau client" Click="boutonadd_Click"/>
             </Grid>
-            <ListView Grid.Row="1" Grid.Column="0" Grid.RowSpan="2">
+            <ListView Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" ItemsSource="{Binding Path=Customers}" SelectedItem="{Binding Path=SelectedCustomers}">
                 <ListView.ItemTemplate >
                     <DataTemplate>
-                        <TextBlock/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding LastName }"/>
+                            <TextBlock Text=", "/>
+                            <TextBlock Text="{Binding Name }"/>
+                        </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -65,19 +69,19 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Grid.Column="0">Prénom :</Label>
-                <TextBox x:Name="prenom" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="prenom" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=SelectedCustomers.Name}"/>
                 <Label Grid.Row="1" Grid.Column="0">Adresse :</Label>
-                <TextBox x:Name="adresse" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+                <TextBox x:Name="adresse" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Path=SelectedCustomers.Address}"/>
                 <Label Grid.Row="2" Grid.Column="0">Ville :</Label>
-                <TextBox x:Name="ville" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="ville" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=SelectedCustomers.City}"/>
                 <Label Grid.Row="3" Grid.Column="0">Code postal :</Label>
-                <TextBox x:Name="code" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="code" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=SelectedCustomers.PostalCode}"/>
                 <Label Grid.Row="4" Grid.Column="0">Contact :</Label>
-                <TextBox x:Name="contact" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"/>
+                <TextBox x:Name="contact" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Path=SelectedCustomers.ContactInfo}"/>
                 <Label Grid.Row="0" Grid.Column="3">Nom :</Label>
-                <TextBox x:Name="nom" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="nom" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding Path=SelectedCustomers.LastName}"/>
                 <Label Grid.Row="2" Grid.Column="3">Province :</Label>
-                <TextBox x:Name="province" Grid.Row="2" Grid.Column="4"/>
+                <TextBox x:Name="province" Grid.Row="2" Grid.Column="4" Text="{Binding Path=SelectedCustomers.Province}"/>
                 <Button x:Name="boutonsup" Content="Supprimer client" Click="boutonsup_Click" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="5"/>
             </Grid>
             <Grid Grid.Row="2" Grid.Column="1">
@@ -88,7 +92,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Grid.Column="0"/>
+                <Image Grid.Row="0" Grid.Column="0" Source="{Binding Path=SelectedCustomers.PicturePath}"/>
             </Grid>
         </Grid>
     </DockPanel>
