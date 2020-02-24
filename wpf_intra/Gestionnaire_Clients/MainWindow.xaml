@@ -10,13 +10,15 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Fichier">
-
+                <MenuItem x:Name="boutonouv" Header="Ouvrir..."/>
+                <MenuItem x:Name="boutonsauv" Header="Sauvegarder"/>
+                <MenuItem x:Name="boutonferm" Header="Fermer"/>
+                <MenuItem x:Name="boutonnouv" Header="Nouveau client" Click="boutonadd_Click"/>
+                <MenuItem x:Name="boutonquit" Header="Quitter"/>
             </MenuItem>
             <MenuItem Header="_Edition">
-
             </MenuItem>
             <MenuItem Header="_Affichage">
-                
             </MenuItem>
         </Menu>
         <Grid>
